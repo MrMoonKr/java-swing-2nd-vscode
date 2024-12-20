@@ -10,11 +10,11 @@ import javax.swing.*;
 import javax.swing.border.*;
 
 public class ComboBoxEditorExample implements ComboBoxEditor {
-    Map map;
+    Map<String,BookEntry> map;
     ImagePanel panel;
     ImageIcon questionIcon;
 
-    public ComboBoxEditorExample( Map m, BookEntry defaultChoice ) {
+    public ComboBoxEditorExample( Map<String,BookEntry> m, BookEntry defaultChoice ) {
         map = m;
         panel = new ImagePanel( defaultChoice );
         questionIcon = new ImageIcon( "question.gif" );

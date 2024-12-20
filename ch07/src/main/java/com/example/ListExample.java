@@ -35,14 +35,14 @@ public class ListExample extends JPanel {
             new BookEntry( "Java Web Services", "covers/jws.gif" ),
             new BookEntry( "Learning Java", "covers/learnj.gif" ) };
 
-    private JList booklist = new JList( books );
+    private JList<BookEntry> booklist = new JList<>( books );
 
     public ListExample() {
         setLayout( new BorderLayout() );
         JButton button = new JButton( "Print" );
         button.addActionListener( new PrintListener() );
 
-        booklist = new JList( books );
+        booklist = new JList<>( books );
         booklist.setCellRenderer( new BookCellRenderer() );
         booklist.setVisibleRowCount( 4 );
         JScrollPane pane = new JScrollPane( booklist );
