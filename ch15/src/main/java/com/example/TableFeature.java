@@ -11,12 +11,10 @@ import java.io.File;
 
 public class TableFeature extends JFrame {
 
-    String titles[] = new String[] { "Directory?", "File Name", "Read?", "Write?", "Size", "Last Modified" };
+    private String titles[] = new String[] { "Directory?", "File Name", "Read?", "Write?", "Size", "Last Modified" };
 
     public TableFeature() {
         super( "Simple JTable Test" );
-        setSize( 640, 480 );
-        setDefaultCloseOperation( EXIT_ON_CLOSE );
 
         File pwd = new File( "." );
         Object[][] stats = getFileStats( pwd );
@@ -48,6 +46,7 @@ public class TableFeature extends JFrame {
     public static void main( String args[] ) {
         TableFeature mainFrame = new TableFeature();
         mainFrame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+        mainFrame.setSize( 640, 480 );
         mainFrame.setLocationRelativeTo( null );
         mainFrame.setVisible( true );
     }
