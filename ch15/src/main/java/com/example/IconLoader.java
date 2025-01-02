@@ -6,6 +6,7 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
+
 public class IconLoader {
 
      public static ImageIcon loadIcon( String resourcePath ) {

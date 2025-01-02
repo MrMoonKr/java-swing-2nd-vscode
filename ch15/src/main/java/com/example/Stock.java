@@ -7,10 +7,10 @@ package com.example;
 import java.util.*;
 
 public class Stock {
-    String symbol;
-    double price;
-    double delta;
-    Date lastUpdate;
+    public String symbol;
+    public double price;
+    public double delta;
+    public Date lastUpdate;
 
     public Stock( String s, double p ) {
         symbol = s;

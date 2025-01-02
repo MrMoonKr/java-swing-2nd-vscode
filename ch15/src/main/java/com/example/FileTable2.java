@@ -6,15 +6,12 @@ package com.example;
 
 import java.awt.*;
 import javax.swing.*;
-//import java.util.Date;
-//import java.io.File;
+
 
 public class FileTable2 extends JFrame {
 
     public FileTable2() {
         super( "Custom TableModel Test" );
-        setSize( 300, 200 );
-        setDefaultCloseOperation( EXIT_ON_CLOSE );
 
         FileModel fm = new FileModel();
         JTable jt = new JTable( fm );
@@ -27,7 +24,10 @@ public class FileTable2 extends JFrame {
     }
 
     public static void main( String args[] ) {
-        FileTable2 ft = new FileTable2();
-        ft.setVisible( true );
+        FileTable2 mainFrame = new FileTable2();
+        mainFrame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+        mainFrame.setSize( 640, 480 );
+        mainFrame.setLocationRelativeTo( null );
+        mainFrame.setVisible( true );
     }
 }

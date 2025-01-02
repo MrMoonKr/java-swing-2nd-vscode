@@ -11,11 +11,11 @@ import java.util.*;
 
 public class MYOSM extends JFrame implements Runnable {
 
-    Stock[] market = { new Stock( "JTree", 14.57 ), new Stock( "JTable", 17.44 ), new Stock( "JList", 16.44 ),
+    private Stock[] market = { new Stock( "JTree", 14.57 ), new Stock( "JTable", 17.44 ), new Stock( "JList", 16.44 ),
             new Stock( "JButton", 7.21 ), new Stock( "JComponent", 27.40 ) };
-    boolean monitor;
-    Random rg = new Random();
-    Thread runner;
+    private boolean monitor;
+    private Random randomGenerator = new Random();
+    private Thread runner;
 
     public MYOSM() {
         // Not meant to be shown as a real frame
@@ -29,8 +29,7 @@ public class MYOSM extends JFrame implements Runnable {
     // but rather as a debugging tool to make sure the market runs ok.
     public MYOSM( boolean monitorOn ) {
         super( "Stock Market Monitor" );
-        setSize( 400, 100 );
-        setDefaultCloseOperation( EXIT_ON_CLOSE );
+
         monitor = monitorOn;
 
         getContentPane().add( new JLabel( "Trading is active.  " + "Close this window to close the market." ),
@@ -44,15 +43,17 @@ public class MYOSM extends JFrame implements Runnable {
     // update a price every second.
     public void run() {
         while ( true ) {
-            int whichStock = Math.abs( rg.nextInt() ) % market.length;
-            double delta = rg.nextDouble() - 0.4;
+            int whichStock = Math.abs( randomGenerator.nextInt() ) % market.length;
+            double delta = randomGenerator.nextDouble() - 0.4;
             market[whichStock].update( delta );
             if ( monitor ) {
                 market[whichStock].print();
             }
+            
             try {
                 Thread.sleep( 1000 );
-            } catch ( InterruptedException ie ) {
+            } 
+            catch ( InterruptedException ie ) {
             }
         }
     }
@@ -71,7 +72,10 @@ public class MYOSM extends JFrame implements Runnable {
     }
 
     public static void main( String args[] ) {
-        MYOSM myMarket = new MYOSM( args.length > 0 );
-        myMarket.setVisible( true );
+        MYOSM mainFrame = new MYOSM( args.length > 0 );
+        mainFrame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+        mainFrame.setSize( 640, 480 );
+        mainFrame.setLocationRelativeTo( null );
+        mainFrame.setVisible( true );
     }
 }

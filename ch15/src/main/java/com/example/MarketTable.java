@@ -28,7 +28,10 @@ public class MarketTable extends JFrame {
     }
 
     public static void main( String args[] ) {
-        MarketTable mt = new MarketTable();
-        mt.setVisible( true );
+        MarketTable mainFrame = new MarketTable();
+        mainFrame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+        mainFrame.setSize( 640, 480 );
+        mainFrame.setLocationRelativeTo( null );
+        mainFrame.setVisible( true );
     }
 }

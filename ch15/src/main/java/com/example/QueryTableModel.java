@@ -77,7 +77,8 @@ public class QueryTableModel extends AbstractTableModel {
                 cache.addElement( record );
             }
             fireTableChanged( null ); // notify everyone that we have a new table.
-        } catch ( Exception e ) {
+        } 
+        catch ( Exception e ) {
             cache = new Vector<>(); // blank it out and keep going.
             e.printStackTrace();
         }
@@ -87,7 +88,8 @@ public class QueryTableModel extends AbstractTableModel {
         try {
             db = DriverManager.getConnection( url );
             statement = db.createStatement();
-        } catch ( Exception e ) {
+        } 
+        catch ( Exception e ) {
             System.out.println( "Could not initialize the database." );
             e.printStackTrace();
         }
@@ -101,7 +103,8 @@ public class QueryTableModel extends AbstractTableModel {
             if ( db != null ) {
                 db.close();
             }
-        } catch ( Exception e ) {
+        } 
+        catch ( Exception e ) {
             System.out.println( "Could not close the current connection." );
             e.printStackTrace();
         }

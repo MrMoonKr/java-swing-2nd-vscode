@@ -4,24 +4,24 @@
 package com.example;
 
 import javax.swing.table.*;
-//import javax.swing.*;
+
 
 public class MarketDataModel extends AbstractTableModel implements Runnable {
 
-    Thread runner;
-    MYOSM market;
-    int delay;
+    private Thread runner;
+    private MYOSM market;
+    private int delay;
 
     public MarketDataModel( int initialDelay ) {
         market = new MYOSM();
         delay = initialDelay * 1000;
-        Thread runner = new Thread( this );
+        runner = new Thread( this );
         runner.start();
     }
 
-    Stock[] stocks = new Stock[0];
-    int[] stockIndices = new int[0];
-    String[] headers = { "Symbol", "Price", "Change", "Last updated" };
+    private Stock[] stocks = new Stock[0];
+    private int[] stockIndices = new int[0];
+    private String[] headers = { "Symbol", "Price", "Change", "Last updated" };
 
     public int getRowCount() {
         return stocks.length;
@@ -76,7 +76,8 @@ public class MarketDataModel extends AbstractTableModel implements Runnable {
             fireTableRowsUpdated( 0, stocks.length - 1 );
             try {
                 Thread.sleep( delay );
-            } catch ( InterruptedException ie ) {
+            } 
+            catch ( InterruptedException ie ) {
             }
         }
     }

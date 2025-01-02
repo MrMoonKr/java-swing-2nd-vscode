@@ -10,11 +10,11 @@ import java.io.File;
 
 public class FileModel extends AbstractTableModel {
 
-    String titles[] = new String[] { "Directory?", "File Name", "Read?", "Write?", "Size", "Last Modified" };
+    private String titles[] = new String[] { "Directory?", "File Name", "Read?", "Write?", "Size", "Last Modified" };
 
-    Class<?> types[] = new Class<?>[] { Boolean.class, String.class, Boolean.class, Boolean.class, Number.class, Date.class };
+    private Class<?> types[] = new Class<?>[] { Boolean.class, String.class, Boolean.class, Boolean.class, Number.class, Date.class };
 
-    Object data[][];
+    private Object data[][];
 
     public FileModel() {
         this( "." );

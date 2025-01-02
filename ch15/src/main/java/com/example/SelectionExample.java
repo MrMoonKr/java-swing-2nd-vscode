@@ -97,27 +97,32 @@ public class SelectionExample extends JFrame {
     }
 
     public static void main( String args[] ) {
-        SelectionExample se = new SelectionExample();
-        se.setVisible( true );
+        SelectionExample mainFrame = new SelectionExample();
+        mainFrame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+        mainFrame.setSize( 640, 480 );
+        mainFrame.setLocationRelativeTo( null );
+        mainFrame.setVisible( true );
     }
 
     public class SelectionDebugger implements ListSelectionListener {
-        JLabel debugger;
-        ListSelectionModel model;
+        
+        private JLabel debugger;
+        private ListSelectionModel model;
 
         public SelectionDebugger( JLabel target, ListSelectionModel lsm ) {
             debugger = target;
             model = lsm;
         }
 
-        public void valueChanged( ListSelectionEvent lse ) {
-            if ( !lse.getValueIsAdjusting() ) {
+        public void valueChanged( ListSelectionEvent selectEvent ) {
+            if ( !selectEvent.getValueIsAdjusting() ) {
                 // skip all the intermediate events . . .
                 StringBuffer buf = new StringBuffer();
                 int[] selection = getSelectedIndices( model.getMinSelectionIndex(), model.getMaxSelectionIndex() );
                 if ( selection.length == 0 ) {
                     buf.append( "none" );
-                } else {
+                } 
+                else {
                     for ( int i = 0; i < selection.length - 1; i++ ) {
                         buf.append( selection[i] );
                         buf.append( ", " );
@@ -128,8 +133,8 @@ public class SelectionExample extends JFrame {
             }
         }
 
-        // This method returns an array of selected indices. It's guaranteed to
-        // return a nonnull value.
+        // This method returns an array of selected indices. 
+        // It's guaranteed to return a nonnull value.
         protected int[] getSelectedIndices( int start, int stop ) {
             if ( ( start == -1 ) || ( stop == -1 ) ) {
                 // no selection, so return an empty array
