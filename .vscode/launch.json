@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SiteManager",
+            "request": "launch",
+            "mainClass": "com.example.SiteManager",
+            "projectName": "ch01"
+        },
+        {
+            "type": "java",
             "name": "ToolbarFrame1",
             "request": "launch",
             "mainClass": "com.example.ToolbarFrame1",
